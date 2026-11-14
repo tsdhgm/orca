@@ -24,17 +24,16 @@ export function buildLinuxElectronBuilderArgs(arch, extraArgs = []) {
   if (!SUPPORTED_ARCHES.has(arch)) {
     throw new Error(`Unsupported Linux build architecture: ${arch}`)
   }
+  const debOnly = extraArgs.includes('--deb')
   return [
     'exec',
     'electron-builder',
     '--config',
     'config/electron-builder.config.cjs',
     '--linux',
-    'AppImage',
-    'deb',
-    'rpm',
+    ...(debOnly ? ['deb'] : ['AppImage', 'deb', 'rpm']),
     `--${arch}`,
-    ...extraArgs
+    ...extraArgs.filter((arg) => arg !== '--deb')
   ]
 }
 

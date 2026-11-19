@@ -8,7 +8,7 @@ import type {
 } from 'pdfjs-dist/web/pdf_viewer.mjs'
 import 'pdfjs-dist/web/pdf_viewer.css'
 import PdfFind from './PdfFind'
-import { useShortcutLabel } from '@/hooks/useShortcutLabel'
+import { useShortcutLabel } from '@/lib/keyboard/useShortcutLabel'
 import { useAppStore } from '@/store/index'
 import { usePdfViewerFindShortcut } from './use-pdf-viewer-find-shortcut'
 
@@ -22,7 +22,7 @@ import {
   type PdfScalePreference
 } from './pdf-scale-preference'
 import { readPdfScalePreference, writePdfScalePreference } from './pdf-scale-preference-storage'
-import { EditorCommandOwnerContext } from '../editor-command-owner-context'
+import { EditorCommandOwnerContext } from '../commands/editor-command-owner-context'
 import { listenForViewerZoomRequests } from '../viewer-viewport/viewer-zoom-request'
 
 pdfjsLib.GlobalWorkerOptions.workerSrc = workerUrl

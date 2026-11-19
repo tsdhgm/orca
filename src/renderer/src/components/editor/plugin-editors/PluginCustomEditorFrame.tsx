@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react'
 import { useTranslate } from '@/i18n/use-translate'
-import { createNonSecureContextUuid as createBrowserUuid } from '../../../../../shared/non-secure-context-uuid'
+import { createNonSecureContextUuid as createBrowserUuid } from '../../../../../shared/identifiers/non-secure-context-uuid'
 import {
   useCustomEditorViewStore,
   type ActivePluginCustomEditor
@@ -16,7 +16,7 @@ import {
 } from '../../plugins/frames/plugin-frame-element'
 import { usePluginFrameHost } from '../../plugins/frames/use-plugin-frame-host'
 import { usePluginFrameEntry } from '../../plugins/frames/use-plugin-frame-entry'
-import { editorShortcutMatches } from '../editor-shortcuts'
+import { editorShortcutMatches } from '../commands/editor-shortcuts'
 import {
   countCustomEditorMergingView,
   useCustomEditorOutsideMerge
